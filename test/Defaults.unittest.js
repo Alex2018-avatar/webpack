@@ -1,4 +1,4 @@
-const jestDiff = require("jest-diff");
+const jestDiff = require("jest-diff").default;
 const stripAnsi = require("strip-ansi");
 const {
 	applyWebpackOptionsDefaults,
@@ -174,7 +174,7 @@ describe("Defaults", () => {
 		          "idHint": "vendors",
 		          "priority": -10,
 		          "reuseExistingChunk": true,
-		          "test": /\\[\\\\\\\\/\\]node_modules\\[\\\\\\\\/\\]/i,
+		          "test": /\\[\\\\\\\\\\\\/\\]node_modules\\[\\\\\\\\\\\\/\\]/i,
 		        },
 		      },
 		      "chunks": "async",
@@ -781,7 +781,7 @@ describe("Defaults", () => {
 			-           "idHint": "vendors",
 			-           "priority": -10,
 			-           "reuseExistingChunk": true,
-			-           "test": /[\\\\/]node_modules[\\\\/]/i,
+			-           "test": /[\\\\\\/]node_modules[\\\\\\/]/i,
 			-         },
 			-       },
 			-       "chunks": "async",
