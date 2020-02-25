@@ -36,10 +36,7 @@ describe("Defaults", () => {
 			);
 		}
 
-		str = str.replace(
-			/\/\[.+]node_modules\[.+]\//,
-			"/[\\\\\\/]node_modules[\\\\\\/]/i"
-		);
+		str = str.replace(/\/\[.+]node_modules\[.+]\//, "/[\\/]node_modules[\\/]/");
 
 		return str;
 	};
@@ -73,7 +70,9 @@ describe("Defaults", () => {
 			return value instanceof RegExp;
 		},
 		print(received) {
-			return received.toString();
+			return received
+				.toString()
+				.replace(/\/\[.+]node_modules\[.+]\//, "/[\\/]node_modules[\\/]/");
 		}
 	});
 
@@ -189,7 +188,7 @@ describe("Defaults", () => {
 		          "idHint": "vendors",
 		          "priority": -10,
 		          "reuseExistingChunk": true,
-		          "test": /[\\\\\\/]node_modules[\\\\\\/]/i,
+		          "test": /[\\/]node_modules[\\/]/i,
 		        },
 		      },
 		      "chunks": "async",
@@ -796,7 +795,7 @@ describe("Defaults", () => {
 			-           "idHint": "vendors",
 			-           "priority": -10,
 			-           "reuseExistingChunk": true,
-			-           "test": /[\\\\\\/]node_modules[\\\\\\/]/ii,
+			-           "test": /[\\/]node_modules[\\/]/i,
 			-         },
 			-       },
 			-       "chunks": "async",
